@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ภคมน พรมดี - Web Developer & Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Prompt & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f5ff',
+                            100: '#e5edff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        },
+                        cyber: {
+                            pink: '#ff007f',
+                            cyan: '#00f3ff',
+                            purple: '#9d00ff',
+                            dark: '#0a0d18'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Prompt', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Prompt', 'Inter', sans-serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.35);
+        }
+        .glow-cyber {
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.25);
+        }
+        .bg-grid {
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+        .light .bg-grid {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 dark:bg-slate-950 dark:text-slate-100 light:bg-slate-50 light:text-slate-800 transition-colors duration-300 min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-900/80 border-b border-slate-800/80 px-4 lg:px-8 py-3.5 transition-all">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+                    ภ
+                </div>
+                <div>
+                    <span class="text-lg font-bold tracking-tight text-white block leading-none">ภคมน พรมดี</span>
+                    <span class="text-xs text-blue-400 font-light">Phakhamon Promdee Portfolio</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-blue-400 transition-colors">เกี่ยวกับ</a>
+                <a href="#projects" class="hover:text-blue-400 transition-colors">ผลงานเว็บไซต์</a>
+                <a href="#skills" class="hover:text-blue-400 transition-colors">ทักษะ</a>
+                <a href="#contact" class="hover:text-blue-400 transition-colors">ติดต่อ</a>
+            </nav>
+
+            <!-- Theme Toggle & Quick Action -->
+            <div class="flex items-center gap-3">
+                <button id="themeToggleBtn" onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-all border border-slate-700/60" title="เปลี่ยนธีม">
+                    <i class="fa-solid fa-moon text-lg" id="themeIcon"></i>
+                </button>
+                <a href="https://github.com/phakhamon99" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium transition-all shadow-md shadow-blue-600/30">
+                    <i class="fa-brands fa-github text-base"></i>
+                    <span>GitHub Profile</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative py-20 px-4 lg:px-8 bg-grid overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-72 h-72 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Info -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
+                    พร้อมสำหรับสร้างสรรค์ผลงานใหม่ๆ
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+            
+                    <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">ภคมน พรมดี</span>
+                </h1>
+
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    ยินดีต้อนรับสู่คลังรวมผลงานพัฒนาเว็บไซต์ (Web Development Portfolio) รวบรวมโปรเจกต์เว็บแอปพลิเคชัน เว็บไซตทีม มินิเกมส์ และเครื่องมือดิจิทัลที่ออกแบบและพัฒนาขึ้น สามารถรับชมและทดลองใช้งานระบบจริงได้ที่นี่
+                </p>
+
+                <!-- Quick Stats / Highlights -->
+                <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-4 text-left">
+                    <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl min-w-[130px]">
+                        <div class="text-2xl font-bold text-blue-400">5+</div>
+                        <div class="text-xs text-slate-400">ผลงานหลักที่เผยแพร่</div>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl min-w-[130px]">
+                        <div class="text-2xl font-bold text-emerald-400">100%</div>
+                        <div class="text-xs text-slate-400">Responsive Web</div>
+                    </div>
+                    <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl min-w-[130px]">
+                        <div class="text-2xl font-bold text-purple-400">GitHub</div>
+                        <div class="text-xs text-slate-400">phakhamon99</div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                    <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span>สำรวจผลงานเว็บไซต์</span>
+                    </a>
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium transition-all flex items-center gap-2">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>ช่องทางการติดต่อ</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Profile Card -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-sm">
+                    <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 blur-xl opacity-50 animate-pulse"></div>
+                    <div class="relative bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl text-center space-y-5">
+                        <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-500 p-1 shadow-inner">
+                            <div class="w-full h-full rounded-full bg-slate-950 flex items-center justify-center text-4xl text-blue-400 font-bold border border-slate-800">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-white">ภคมน พรมดี</h3>
+                            <p class="text-xs text-slate-400 mt-1">Web Creator & Front-End Developer</p>
+                        </div>
+
+                        <div class="border-t border-slate-800/80 pt-4 flex justify-around text-center">
+                            <div>
+                                <span class="block text-xs text-slate-500">แพลตฟอร์ม</span>
+                                <span class="text-sm font-medium text-slate-200">GitHub Pages</span>
+                            </div>
+                            <div class="border-r border-slate-800"></div>
+                            <div>
+                                <span class="block text-xs text-slate-500">ตำแหน่ง</span>
+                                <span class="text-sm font-medium text-slate-200">ประเทศไทย</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle text-emerald-500 text-[8px]"></i>
+                                สถานะการทำงาน
+                            </span>
+                            <span class="text-emerald-400 font-medium">พร้อมรับงาน/เสนอโปรเจกต์</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 lg:px-8 bg-slate-900/40 border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto space-y-10">
+            <!-- Section Title -->
+            <div class="text-center space-y-3 max-w-2xl mx-auto">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">
+                    ผลงานเว็บไซต์ <span class="text-blue-400">(Web Projects)</span>
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    คัดสรรเว็บไซต์และแอปพลิเคชันที่พัฒนาขึ้นจริง คลิก "เปิดดูเว็บจริง" หรือทดลองเล่นผ่าน Live Preview ได้ทันที
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3" id="filterContainer">
+                <button onclick="filterProjects('all')" class="filter-btn active-filter px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 text-white transition-all shadow-md">
+                    ทั้งหมด (All)
+                </button>
+                <button onclick="filterProjects('live')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700">
+                    GitHub Live Websites
+                </button>
+                <button onclick="filterProjects('utility')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700">
+                    เครื่องมือ & Utilities
+                </button>
+                <button onclick="filterProjects('game')" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700">
+                    เกมและอินเทอร์แอคทีฟ
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                
+                <!-- Project 1: Open House -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-lg" data-category="live">
+                    <div class="relative h-48 bg-gradient-to-br from-indigo-900 via-slate-900 to-blue-900 flex items-center justify-center p-6 overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors"></div>
+                        <div class="text-center z-10 space-y-2">
+                            <div class="w-16 h-16 mx-auto rounded-2xl bg-indigo-600/40 border border-indigo-400/30 flex items-center justify-center text-3xl text-indigo-300 shadow-lg">
+                                <i class="fa-solid fa-door-open"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-indigo-300 block">Open House Event</span>
+                        </div>
+                        <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live Website
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Open House Web App</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm line-clamp-2">
+                            เว็บไซต์แนะนำและประชาสัมพันธ์งานเปิดบ้าน (Open House) นำเสนอข้อมูลกิจกรรม นิทรรศการ และหลักสูตรวิชาอย่างมีระเบียบ
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">HTML5</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">CSS3</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">GitHub Pages</span>
+                        </div>
+                        <div class="pt-2 flex items-center gap-3">
+                            <a href="https://phakhamon99.github.io/openhouse/" target="_blank" class="flex-1 text-center px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors flex items-center justify-center gap-2">
+                                <span>เยี่ยมชมเว็บไซต์</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: My Favorite Websites -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-lg" data-category="live utility">
+                    <div class="relative h-48 bg-gradient-to-br from-blue-900 via-slate-900 to-cyan-900 flex items-center justify-center p-6 overflow-hidden">
+                        <div class="absolute inset-0 bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors"></div>
+                        <div class="text-center z-10 space-y-2">
+                            <div class="w-16 h-16 mx-auto rounded-2xl bg-cyan-600/40 border border-cyan-400/30 flex items-center justify-center text-3xl text-cyan-300 shadow-lg">
+                                <i class="fa-solid fa-bookmark"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-cyan-300 block">Web Collection</span>
+                        </div>
+                        <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live Website
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">My Favorite Websites</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm line-clamp-2">
+                            แหล่งรวบรวมเว็บไซต์สุดโปรดและเครื่องมือดิจิทัลที่เป็นประโยชน์สำหรับการเรียนและการทำงาน รวบรวมไว้อย่างเป็นหมวดหมู่
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">JavaScript</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">Bookmarks</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">UI Design</span>
+                        </div>
+                        <div class="pt-2 flex items-center gap-3">
+                            <a href="https://phakhamon99.github.io/my-favorite-websites/" target="_blank" class="flex-1 text-center px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors flex items-center justify-center gap-2">
+                                <span>เยี่ยมชมเว็บไซต์</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Cyber Arcade -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-pink-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-lg" data-category="game">
+                    <div class="relative h-48 bg-gradient-to-br from-purple-950 via-slate-900 to-pink-950 flex items-center justify-center p-6 overflow-hidden">
+                        <div class="absolute inset-0 bg-pink-500/10 group-hover:bg-pink-500/20 transition-colors"></div>
+                        <div class="text-center z-10 space-y-2">
+                            <div class="w-16 h-16 mx-auto rounded-2xl bg-pink-600/40 border border-pink-400/30 flex items-center justify-center text-3xl text-pink-300 shadow-lg glow-cyber">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-pink-300 block">Arcade Game Hub</span>
+                        </div>
+                        <span class="absolute top-3 right-3 bg-purple-500/20 text-purple-300 border border-purple-500/30 text-[11px] font-medium px-2.5 py-1 rounded-full">
+                            Interactive App
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold text-white group-hover:text-pink-400 transition-colors">Cyber Arcade</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm line-clamp-2">
+                            ศูนย์รวมเกมสไตล์อาเขตยุคอนาคต พัฒนาด้วยเทคโนโลยีเว็บ สามารถทดลองเล่นเกมยิงเป้าไซเบอร์สะสมคะแนนได้โดยตรงในหน้านี้
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">HTML5 Canvas</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">JS Game Engine</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">Cyberpunk UI</span>
+                        </div>
+                        <div class="pt-2 flex items-center gap-2">
+                            <button onclick="openArcadeModal()" class="flex-1 px-4 py-2.5 rounded-xl bg-pink-600 hover:bg-pink-500 text-white text-xs font-medium transition-colors flex items-center justify-center gap-2 shadow-md shadow-pink-600/30">
+                                <i class="fa-solid fa-play"></i>
+                                <span>ลองเล่นเกม (Live Demo)</span>
+                            </button>
+                            <button onclick="showFileLocation('cyber_arcade.html')" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs" title="ข้อมูลไฟล์โลคอล">
+                                <i class="fa-solid fa-folder-open"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Our Team -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-lg" data-category="live">
+                    <div class="relative h-48 bg-gradient-to-br from-emerald-950 via-slate-900 to-teal-900 flex items-center justify-center p-6 overflow-hidden">
+                        <div class="absolute inset-0 bg-teal-500/10 group-hover:bg-teal-500/20 transition-colors"></div>
+                        <div class="text-center z-10 space-y-2">
+                            <div class="w-16 h-16 mx-auto rounded-2xl bg-teal-600/40 border border-teal-400/30 flex items-center justify-center text-3xl text-teal-300 shadow-lg">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-teal-300 block">Team Profile Page</span>
+                        </div>
+                        <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[11px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live Website
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Our Team (สมาชิกทีม)</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm line-clamp-2">
+                            เว็บไซต์แนะนำสมาชิกในทีม ออกแบบโครงสร้างทันสมัย แสดงข้อมูลบทบาทและช่องทางการติดต่อของเพื่อนร่วมทีมอย่างสวยงาม
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">Team Showcase</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">Responsive Grid</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">GitHub Pages</span>
+                        </div>
+                        <div class="pt-2 flex items-center gap-3">
+                            <a href="https://phakhamon99.github.io/our-team/" target="_blank" class="flex-1 text-center px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors flex items-center justify-center gap-2">
+                                <span>เยี่ยมชมเว็บไซต์</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: BMI Calculator -->
+                <div class="project-card group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 hover:-translate-y-1.5 shadow-lg" data-category="utility">
+                    <div class="relative h-48 bg-gradient-to-br from-emerald-900 via-slate-900 to-green-950 flex items-center justify-center p-6 overflow-hidden">
+                        <div class="absolute inset-0 bg-emerald-500/10 group-hover:bg-emerald-500/20 transition-colors"></div>
+                        <div class="text-center z-10 space-y-2">
+                            <div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-600/40 border border-emerald-400/30 flex items-center justify-center text-3xl text-emerald-300 shadow-lg">
+                                <i class="fa-solid fa-calculator"></i>
+                            </div>
+                            <span class="text-xs font-semibold uppercase tracking-wider text-emerald-300 block">Health Calculator</span>
+                        </div>
+                        <span class="absolute top-3 right-3 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-medium px-2.5 py-1 rounded-full">
+                            Interactive App
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">BMI Calculator</h3>
+                        </div>
+                        <p class="text-slate-400 text-sm line-clamp-2">
+                            โปรแกรมคำนวณดัชนีมวลกาย คำนวณค่าน้ำหนักและส่วนสูงแบบเรียลไทม์ พร้อมการแปลผลเกณฑ์สุขภาพและคำแนะนำ
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">HTML/CSS</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">JavaScript Algorithm</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 px-2.5 py-1 rounded-lg border border-slate-700/60">Health Tool</span>
+                        </div>
+                        <div class="pt-2 flex items-center gap-2">
+                            <button onclick="openBmiModal()" class="flex-1 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium transition-colors flex items-center justify-center gap-2 shadow-md shadow-emerald-600/30">
+                                <i class="fa-solid fa-calculator"></i>
+                                <span>เปิดใช้งานโปรแกรม (Live Demo)</span>
+                            </button>
+                            <button onclick="showFileLocation('bmi.html')" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs" title="ข้อมูลไฟล์โลคอล">
+                                <i class="fa-solid fa-folder-open"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Technology Section -->
+    <section id="skills" class="py-20 px-4 lg:px-8 bg-slate-950">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold text-white">ทักษะและเทคโนโลยีที่ใช้</h2>
+                <p class="text-slate-400 text-sm">เครื่องมือและภาษาโปรแกรมที่ใช้ออกแบบและพัฒนาผลงานทั้งหมด</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-center hover:border-orange-500/50 transition-all group">
+                    <i class="fa-brands fa-html5 text-4xl text-orange-500 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="mt-2 text-sm font-semibold text-slate-200">HTML5</h4>
+                    <span class="text-[11px] text-slate-500">Semantic Markup</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-center hover:border-blue-500/50 transition-all group">
+                    <i class="fa-brands fa-css3-alt text-4xl text-blue-500 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="mt-2 text-sm font-semibold text-slate-200">CSS3</h4>
+                    <span class="text-[11px] text-slate-500">Styling & Animations</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-center hover:border-yellow-500/50 transition-all group">
+                    <i class="fa-brands fa-js text-4xl text-yellow-400 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="mt-2 text-sm font-semibold text-slate-200">JavaScript</h4>
+                    <span class="text-[11px] text-slate-500">DOM & Interactivity</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-center hover:border-cyan-500/50 transition-all group">
+                    <i class="fa-brands fa-github text-4xl text-slate-100 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="mt-2 text-sm font-semibold text-slate-200">GitHub Pages</h4>
+                    <span class="text-[11px] text-slate-500">Hosting & Deployment</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-center hover:border-purple-500/50 transition-all group">
+                    <i class="fa-solid fa-mobile-screen text-4xl text-purple-400 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="mt-2 text-sm font-semibold text-slate-200">Responsive</h4>
+                    <span class="text-[11px] text-slate-500">Mobile First Design</span>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 text-center hover:border-emerald-500/50 transition-all group">
+                    <i class="fa-solid fa-paintbrush text-4xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="mt-2 text-sm font-semibold text-slate-200">UI/UX Design</h4>
+                    <span class="text-[11px] text-slate-500">Clean Interface</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 lg:px-8 bg-slate-900/60 border-t border-slate-800/80">
+        <div class="max-w-4xl mx-auto space-y-10">
+            <div class="text-center space-y-3">
+                <h2 class="text-3xl font-bold text-white">ช่องทางการติดต่อ</h2>
+                <p class="text-slate-400 text-sm">หากต้องการสอบถามข้อมูลเพิ่มเติม หรือติดต่องานพัฒนาเว็บไซต์</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <a href="https://github.com/phakhamon99" target="_blank" class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-blue-500 transition-all text-center group">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <h4 class="mt-4 font-semibold text-white">GitHub</h4>
+                    <p class="text-xs text-slate-400 mt-1">@phakhamon99</p>
+                </a>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h4 class="mt-4 font-semibold text-white">อีเมล</h4>
+                    <p class="text-xs text-slate-400 mt-1">phakhamon.promdee@email.com</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h4 class="mt-4 font-semibold text-white">ที่อยู่</h4>
+                    <p class="text-xs text-slate-400 mt-1">ประเทศไทย (Thailand)</p>
+                </div>
+            </div>
+
+            <!-- Quick Contact Message Form -->
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
+                <h3 class="text-lg font-bold text-white text-center">ส่งข้อความถึง ภคมน</h3>
+                <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5">ชื่อผู้ติดต่อ</label>
+                            <input type="text" required placeholder="ชื่อของคุณ" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1.5">อีเมลติดต่อ</label>
+                            <input type="email" required placeholder="your.email@example.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-slate-400 mb-1.5">ข้อความ</label>
+                        <textarea rows="3" required placeholder="พิมพ์ข้อความที่คุณต้องการส่ง..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-blue-500 transition-colors resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-colors shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>ส่งข้อความ</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-8 text-center text-slate-500 text-xs border-t border-slate-800/80 bg-slate-950">
+        <p>© 2026 ภคมน พรมดี (Phakhamon Promdee). All rights reserved.</p>
+        <p class="mt-1">พัฒนาด้วย HTML5, Tailwind CSS และ JavaScript</p>
+    </footer>
+
+    <!-- Modal 1: BMI Calculator Live Interactive Demo -->
+    <div id="bmiModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-md overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <!-- Modal Header -->
+            <div class="bg-slate-800/80 px-6 py-4 border-b border-slate-700/60 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-calculator text-emerald-400 text-lg"></i>
+                    <h3 class="font-bold text-white text-base">BMI Calculator (โปรแกรมคำนวณ BMI)</h3>
+                </div>
+                <button onclick="closeBmiModal()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-700">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content - Interactive App -->
+            <div class="p-6 space-y-5">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">ส่วนสูง (เซนติเมตร)</label>
+                        <input type="number" id="bmiHeight" placeholder="เช่น 165" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-slate-100 text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">น้ำหนัก (กิโลกรัม)</label>
+                        <input type="number" id="bmiWeight" placeholder="เช่น 55" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-slate-100 text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <button onclick="calculateBMI()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-sm transition-colors shadow-md shadow-emerald-600/30">
+                        คำนวณผลลัพธ์
+                    </button>
+                </div>
+
+                <!-- Result Display Area -->
+                <div id="bmiResultBox" class="hidden p-4 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-2">
+                    <span class="text-xs text-slate-400 block">ค่าดัชนีมวลกายของคุณคือ</span>
+                    <div class="text-3xl font-extrabold text-emerald-400" id="bmiValue">0.0</div>
+                    <div class="text-sm font-semibold" id="bmiStatus">-</div>
+                    <p class="text-xs text-slate-400 pt-1" id="bmiAdvice">-</p>
+                </div>
+
+                <div class="text-[11px] text-slate-500 bg-slate-950/40 p-3 rounded-xl border border-slate-800/60">
+                    <i class="fa-solid fa-file-code text-slate-400 mr-1"></i>
+                    ตำแหน่งไฟล์ระบบ: <code class="text-slate-300">file:///C:/Users/ACER/Downloads/bmi.html</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Cyber Arcade Live Interactive Mini-Game Demo -->
+    <div id="arcadeModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl relative">
+            <!-- Modal Header -->
+            <div class="bg-slate-800/80 px-6 py-4 border-b border-slate-700/60 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-gamepad text-pink-400 text-lg"></i>
+                    <h3 class="font-bold text-white text-base">Cyber Arcade (ไซเบอร์อาเขต มินิเกม)</h3>
+                </div>
+                <button onclick="closeArcadeModal()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-700">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content - Arcade Target Game -->
+            <div class="p-6 space-y-4 text-center">
+                <div class="flex justify-between items-center text-xs text-slate-300 bg-slate-950 px-4 py-2 rounded-xl border border-slate-800">
+                    <span>คะแนน (Score): <strong id="arcadeScore" class="text-pink-400 text-base">0</strong></span>
+                    <span>เวลาเหลือ: <strong id="arcadeTimer" class="text-cyan-400 text-base">15</strong>s</span>
+                </div>
+
+                <!-- Canvas Area -->
+                <div class="relative w-full h-64 bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden flex items-center justify-center">
+                    <canvas id="arcadeCanvas" class="w-full h-full cursor-crosshair"></canvas>
+                    
+                    <div id="arcadeOverlay" class="absolute inset-0 bg-slate-950/90 flex flex-col items-center justify-center p-4 space-y-3">
+                        <i class="fa-solid fa-crosshairs text-4xl text-pink-500 animate-bounce"></i>
+                        <h4 class="text-lg font-bold text-white">พร้อมลุยใน Cyber Arcade หรือยัง?</h4>
+                        <p class="text-xs text-slate-400 max-w-xs">กดปุ่มเริ่มเกมแล้วคลิกยิงเป้าไซเบอร์นีออนที่ปรากฏขึ้นเพื่อสะสมคะแนน!</p>
+                        <button onclick="startArcadeGame()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-medium text-xs shadow-lg shadow-pink-600/30">
+                            เริ่มเล่นเกม
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-[11px] text-slate-500 bg-slate-950/40 p-3 rounded-xl border border-slate-800/60 text-left">
+                    <i class="fa-solid fa-file-code text-slate-400 mr-1"></i>
+                    ตำแหน่งไฟล์ระบบ: <code class="text-slate-300">file:///C:/Users/ACER/Downloads/cyber_arcade.html</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden bg-slate-900 border border-blue-500/50 text-white px-5 py-3.5 rounded-2xl shadow-xl flex items-center gap-3 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toastMsg" class="text-xs font-medium">ส่งข้อความเรียบร้อยแล้ว!</span>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                themeIcon.className = 'fa-solid fa-sun text-amber-400 text-lg';
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                themeIcon.className = 'fa-solid fa-moon text-lg';
+            }
+        }
+
+        // Project Filtering
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+
+            event.currentTarget.classList.remove('bg-slate-800', 'text-slate-300');
+            event.currentTarget.classList.add('bg-blue-600', 'text-white', 'shadow-md');
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // File Location Alert / Helper
+        function showFileLocation(filename) {
+            showToast(`ไฟล์ท้องถิ่น: file:///C:/Users/ACER/Downloads/${filename}`);
+        }
+
+        // Toast Notification Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3500);
+        }
+
+        // Contact Form Submission
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast('ขอบคุณสำหรับการติดต่อ! ข้อความถูกส่งแล้ว');
+            e.target.reset();
+        }
+
+        // --- BMI CALCULATOR LOGIC ---
+        function openBmiModal() {
+            document.getElementById('bmiModal').classList.remove('hidden');
+        }
+
+        function closeBmiModal() {
+            document.getElementById('bmiModal').classList.add('hidden');
+        }
+
+        function calculateBMI() {
+            const height = parseFloat(document.getElementById('bmiHeight').value);
+            const weight = parseFloat(document.getElementById('bmiWeight').value);
+            const resultBox = document.getElementById('bmiResultBox');
+
+            if (!height || !weight || height <= 0 || weight <= 0) {
+                alert('กรุณากรอกส่วนสูงและน้ำหนักให้ถูกต้อง');
+                return;
+            }
+
+            const bmi = weight / ((height / 100) ** 2);
+            const formattedBmi = bmi.toFixed(1);
+
+            document.getElementById('bmiValue').innerText = formattedBmi;
+
+            let status = '';
+            let advice = '';
+            let colorClass = 'text-emerald-400';
+
+            if (bmi < 18.5) {
+                status = 'น้ำหนักน้อย / ผอม';
+                advice = 'ควรรับประทานอาหารให้ครบ 5 หมู่ และเพิ่มปริมาณแคลอรีอย่างเหมาะสม';
+                colorClass = 'text-sky-400';
+            } else if (bmi < 23) {
+                status = 'สมส่วน / ปกติ';
+                advice = 'สุขภาพดีเยี่ยม! ควบคุมอาหารและออกกำลังกายสม่ำเสมอต่อไป';
+                colorClass = 'text-emerald-400';
+            } else if (bmi < 25) {
+                status = 'น้ำหนักเกิน (ท้วม)';
+                advice = 'เริ่มมีความเสี่ยง ควบคุมปริมาณแป้งและน้ำตาล';
+                colorClass = 'text-amber-400';
+            } else {
+                status = 'อ้วน / เสี่ยงโรค';
+                advice = 'ควรลดการบริโภคของหวาน ของมัน และเพิ่มการออกกำลังกาย';
+                colorClass = 'text-rose-400';
+            }
+
+            document.getElementById('bmiStatus').innerText = status;
+            document.getElementById('bmiValue').className = `text-3xl font-extrabold ${colorClass}`;
+            document.getElementById('bmiAdvice').innerText = advice;
+
+            resultBox.classList.remove('hidden');
+        }
+
+        // --- CYBER ARCADE MINI GAME LOGIC ---
+        let gameTimer = null;
+        let score = 0;
+        let timeLeft = 15;
+        let target = { x: 0, y: 0, radius: 25 };
+
+        function openArcadeModal() {
+            document.getElementById('arcadeModal').classList.remove('hidden');
+            initCanvas();
+        }
+
+        function closeArcadeModal() {
+            document.getElementById('arcadeModal').classList.add('hidden');
+            clearInterval(gameTimer);
+        }
+
+        function initCanvas() {
+            const canvas = document.getElementById('arcadeCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+
+            // Simple Grid Background
+            ctx.fillStyle = '#0a0d18';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function startArcadeGame() {
+            score = 0;
+            timeLeft = 15;
+            document.getElementById('arcadeScore').innerText = score;
+            document.getElementById('arcadeTimer').innerText = timeLeft;
+            document.getElementById('arcadeOverlay').classList.add('hidden');
+
+            const canvas = document.getElementById('arcadeCanvas');
+            canvas.onclick = handleCanvasClick;
+
+            spawnTarget();
+            
+            clearInterval(gameTimer);
+            gameTimer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('arcadeTimer').innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    endArcadeGame();
+                }
+            }, 1000);
+        }
+
+        function spawnTarget() {
+            const canvas = document.getElementById('arcadeCanvas');
+            const ctx = canvas.getContext('2d');
+
+            target.radius = Math.floor(Math.random() * 15) + 18;
+            target.x = Math.random() * (canvas.width - target.radius * 2) + target.radius;
+            target.y = Math.random() * (canvas.height - target.radius * 2) + target.radius;
+
+            drawTarget();
+        }
+
+        function drawTarget() {
+            const canvas = document.getElementById('arcadeCanvas');
+            const ctx = canvas.getContext('2d');
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Background Grid
+            ctx.strokeStyle = 'rgba(255,0,127,0.1)';
+            ctx.lineWidth = 1;
+            for(let x=0; x<canvas.width; x+=30) {
+                ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,canvas.height); ctx.stroke();
+            }
+
+            // Target Outer Ring
+            ctx.beginPath();
+            ctx.arc(target.x, target.y, target.radius, 0, Math.PI * 2);
+            ctx.strokeStyle = '#ff007f';
+            ctx.lineWidth = 3;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = '#ff007f';
+            ctx.stroke();
+
+            // Target Inner Ring
+            ctx.beginPath();
+            ctx.arc(target.x, target.y, target.radius * 0.5, 0, Math.PI * 2);
+            ctx.fillStyle = '#00f3ff';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#00f3ff';
+            ctx.fill();
+        }
+
+        function handleCanvasClick(e) {
+            const canvas = document.getElementById('arcadeCanvas');
+            const rect = canvas.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+
+            const dist = Math.hypot(clickX - target.x, clickY - target.y);
+            if (dist <= target.radius) {
+                score += 10;
+                document.getElementById('arcadeScore').innerText = score;
+                spawnTarget();
+            }
+        }
+
+        function endArcadeGame() {
+            clearInterval(gameTimer);
+            const canvas = document.getElementById('arcadeCanvas');
+            canvas.onclick = null;
+
+            const overlay = document.getElementById('arcadeOverlay');
+            overlay.innerHTML = `
+                <i class="fa-solid fa-trophy text-4xl text-amber-400"></i>
+                <h4 class="text-xl font-bold text-white">หมดเวลา!</h4>
+                <p class="text-sm text-slate-300">คะแนนรวมที่คุณทำได้: <span class="text-pink-400 font-bold text-lg">${score}</span> คะแนน</p>
+                <button onclick="startArcadeGame()" class="px-6 py-2 rounded-xl bg-pink-600 text-white text-xs font-medium">เล่นใหม่อีกครั้ง</button>
+            `;
+            overlay.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
